@@ -12,6 +12,7 @@
   },
   "action": {
     "default_title": "Bookit",
+    "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/icon-16.png",
       "24": "icons/icon-24.png",
