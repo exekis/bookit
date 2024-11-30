@@ -7,37 +7,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bookit</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      background-color: #f0f4f8;
+      width: 100%;
+      height: 100%;
     }
 
     .popup-container {
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-      padding: 20px 30px;
-      text-align: center;
+      width: 100%;
       max-width: 300px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
 
     h1 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    button {
       font-size: 14px;
-      color: #2c3e50;
-      margin: 0;
+      padding: 10px 20px;
+      margin: 10px 0;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
     }
   </style>
   <script src="popup.js" defer></script>
 </head>
 <body>
   <div class="popup-container">
-    <h1>All Tabs Saved!</h1>
+    <h1>Bookit Actions</h1>
+    <button id="save-all-tabs-btn">Save All Tabs</button>
+    <button id="combine-all-btn">Combine All</button>
   </div>
 </body>
 </html>
