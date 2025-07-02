@@ -6,4 +6,4 @@ Here’s what Bookit does: you click the button, and it saves all your tabs into
 
 That’s it. Now you can close/restart your browser. When you’re ready, just go to the folder, right-click, and reopen everything :)
 
-[Get it on Chrome](https://chromewebstore.google.com/detail/bookit/aciacgkaikpibanahejepijpgbagiebe?hl=en&pli=1) or [Firefox](https://addons.mozilla.org/en-CA/firefox/addon/bookit/)
+Get it on [Chrome](https://chromewebstore.google.com/detail/bookit/aciacgkaikpibanahejepijpgbagiebe?hl=en&pli=1) or [Firefox](https://addons.mozilla.org/en-CA/firefox/addon/bookit/)
