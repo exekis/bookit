@@ -1,7 +1,11 @@
-// background.js
+// background.js - Cross-browser compatible
 
-chrome.action.onClicked.addListener(() => {
-  chrome.tabs.query({ currentWindow: true }, (tabs) => {
+// Use the appropriate API based on browser
+const browserAPI = chrome || browser;
+const actionAPI = browserAPI.action || browserAPI.browserAction;
+
+actionAPI.onClicked.addListener(() => {
+  browserAPI.tabs.query({ currentWindow: true }, (tabs) => {
     if (tabs.length === 0) {
       console.log("No tabs to bookmark.");
       return;
@@ -9,11 +13,11 @@ chrome.action.onClicked.addListener(() => {
 
     const today = new Date().toISOString().split("T")[0];
 
-    chrome.bookmarks.search({ title: "Bookit" }, (results) => {
+    browserAPI.bookmarks.search({ title: "Bookit" }, (results) => {
       let bookitFolder = results.find((folder) => folder.title === "Bookit");
 
       if (!bookitFolder) {
-        chrome.bookmarks.create({ title: "Bookit" }, (newFolder) => {
+        browserAPI.bookmarks.create({ title: "Bookit" }, (newFolder) => {
           bookitFolder = newFolder;
           saveTabsToFolder(bookitFolder.id, today, tabs);
         });
@@ -25,7 +29,7 @@ chrome.action.onClicked.addListener(() => {
 });
 
 function saveTabsToFolder(parentId, date, tabs) {
-  chrome.bookmarks.getChildren(parentId, (children) => {
+  browserAPI.bookmarks.getChildren(parentId, (children) => {
     const dateFolders = children.filter((child) => child.title.startsWith(date));
     let folderTitle = date;
 
@@ -33,9 +37,9 @@ function saveTabsToFolder(parentId, date, tabs) {
       folderTitle = `${date} (${dateFolders.length + 1})`;
     }
 
-    chrome.bookmarks.create({ parentId: parentId, title: folderTitle }, (dateFolder) => {
+    browserAPI.bookmarks.create({ parentId: parentId, title: folderTitle }, (dateFolder) => {
       tabs.forEach((tab) => {
-        chrome.bookmarks.create({
+        browserAPI.bookmarks.create({
           parentId: dateFolder.id,
           title: tab.title,
           url: tab.url,

@@ -1,0 +1,15 @@
+{
+  "name": "bookit-extension",
+  "version": "1.2.0",
+  "description": "Browser extension to bookmark all tabs",
+  "scripts": {
+    "build:chrome": "cp manifest_chrome.json manifest.json && echo 'Chrome build ready'",
+    "build:firefox": "cp manifest_firefox.json manifest.json && echo 'Firefox build ready'",
+    "build:all": "npm run build:chrome && npm run build:firefox",
+    "dev:chrome": "npm run build:chrome && echo 'Ready for Chrome development'",
+    "dev:firefox": "npm run build:firefox && echo 'Ready for Firefox development'"
+  },
+  "keywords": ["browser-extension", "bookmarks", "chrome", "firefox"],
+  "author": "Your Name",
+  "license": "MIT"
+}
